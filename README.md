@@ -54,6 +54,46 @@ On **Linux (Ubuntu/Debian)**:
 sudo apt-get install python3-dev python3-pip python3-cffi libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf2.0-0 libffi-dev shared-mime-info poppler-utils
 ```
 
+## Docker Setup (Recommended)
+
+The easiest way to run the Document Converter is using Docker.
+
+### Using Docker Compose
+
+1. Make sure you have Docker and Docker Compose installed
+2. Clone the repository
+3. Run:
+
+```bash
+docker-compose up -d
+```
+
+This will start:
+- **Backend API** on http://localhost:8000
+- **Frontend UI** on http://localhost:3000
+
+### Building Individual Containers
+
+**Backend only:**
+```bash
+cd backend
+docker build -t document-converter-api .
+docker run -p 8000:8000 document-converter-api
+```
+
+**Frontend only:**
+```bash
+cd frontend
+docker build -t document-converter-frontend .
+docker run -p 3000:80 document-converter-frontend
+```
+
+### Stopping Services
+
+```bash
+docker-compose down
+```
+
 ## Usage
 
 ### Starting the API Server
@@ -380,6 +420,8 @@ document-converter/
 │   ├── sample.md             # Sample Markdown file
 │   └── sample.html           # Sample HTML file
 ├── .venv/                    # Virtual environment
+├── docker-compose.yml        # Docker Compose configuration
+├── .dockerignore            # Docker ignore file
 ├── start-api.sh              # Start API server
 ├── convert.sh                # CLI convenience script
 ├── test-api.py               # API test client
