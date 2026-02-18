@@ -1,0 +1,292 @@
+@page {
+    size: letter;
+    margin: 1in;
+    
+    @bottom-center {
+        content: counter(page);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-size: 9pt;
+        color: #666;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 11pt;
+    line-height: 1.6;
+    color: #000;
+    background: white;
+    text-align: left;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    margin-top: 18pt;
+    margin-bottom: 8pt;
+    page-break-after: avoid;
+    line-height: 1.3;
+    color: #000;
+}
+
+h1 {
+    font-size: 28pt;
+    margin-top: 0pt;
+    margin-bottom: 16pt;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 22pt;
+}
+
+h3 {
+    font-size: 18pt;
+}
+
+h4 {
+    font-size: 14pt;
+}
+
+h5 {
+    font-size: 12pt;
+}
+
+h6 {
+    font-size: 11pt;
+    font-weight: 600;
+}
+
+/* Paragraphs */
+p {
+    margin-bottom: 12pt;
+    margin-top: 0pt;
+    orphans: 2;
+    widows: 2;
+}
+
+
+a {
+    color: #373aff;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #8b5cf6;
+}
+
+/* Lists */
+ul, ol {
+    margin-left: 0.5in;
+    margin-bottom: 12pt;
+    padding-left: 0;
+}
+
+li {
+    margin-bottom: 6pt;
+}
+
+ul ul, ul ol, ol ul, ol ol {
+    margin-bottom: 0;
+    margin-top: 6pt;
+}
+
+
+pre {
+    background-color: #f5f5f5;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    padding: 12pt;
+    margin: 12pt 0;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Courier New', monospace;
+    font-size: 9.5pt;
+    line-height: 1.5;
+    overflow-x: auto;
+    page-break-inside: avoid;
+}
+
+code {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Courier New', monospace;
+    font-size: 9.5pt;
+    background-color: #f5f5f5;
+    color: #cc1111;
+    padding: 2pt 5pt;
+    border-radius: 4px;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+    color: #121212;
+}
+
+
+blockquote {
+    margin: 12pt 0;
+    padding-left: 16pt;
+    border-left: 4px solid #e5e5e5;
+    color: #000;
+    font-style: italic;
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 12pt 0;
+    page-break-inside: avoid;
+}
+
+th, td {
+    border: 1pt solid #e5e5e5;
+    padding: 8pt 12pt;
+    text-align: left;
+}
+
+th {
+    background-color: #f9f9f9;
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+
+hr {
+    border: none;
+    border-top: 1pt solid #e5e5e5;
+    margin: 16pt 0;
+    page-break-after: always;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 12pt auto;
+}
+
+/* Text formatting */
+strong, b {
+    font-weight: 700;
+}
+
+em, i {
+    font-style: italic;
+}
+
+s, strike, del {
+    text-decoration: line-through;
+}
+
+/* Subscript and superscript */
+sub {
+    vertical-align: sub;
+    font-size: 0.8em;
+}
+
+sup {
+    vertical-align: super;
+    font-size: 0.8em;
+}
+
+/* Underline */
+u {
+    text-decoration: underline;
+}
+
+
+.page-break {
+    page-break-after: always;
+}
+
+
+h1, h2, h3, h4, h5, h6, img, table, pre, blockquote {
+    page-break-inside: avoid;
+}
+
+
+input[type="checkbox"] {
+    margin-right: 6pt;
+}
+
+/* Footnotes */
+.footnotes {
+    margin-top: 24pt;
+    padding-top: 12pt;
+    border-top: 1pt solid #e5e5e5;
+    font-size: 10pt;
+}
+
+.footnotes ol {
+    margin-left: 0.3in;
+}
+
+/* Highlight */
+mark {
+    background-color: #fef3c7;
+    color: #121212;
+    padding: 2pt 4pt;
+}
+
+/* Keyboard shortcuts */
+kbd {
+    background-color: #f5f5f5;
+    border: 1pt solid #d4d4d4;
+    border-radius: 3px;
+    padding: 2pt 6pt;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 9pt;
+}
+
+/* Definition lists */
+dl {
+    margin: 12pt 0;
+}
+
+dt {
+    font-weight: 600;
+    margin-top: 8pt;
+}
+
+dd {
+    margin-left: 24pt;
+    margin-bottom: 8pt;
+}
+
+/* Abbreviations */
+abbr {
+    text-decoration: underline dotted;
+    cursor: help;
+}
+
+/* Citations */
+cite {
+    font-style: italic;
+}
+
+/* Addresses */
+address {
+    font-style: italic;
+    margin: 12pt 0;
+}
+
+/* Preformatted text */
+samp {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 9.5pt;
+}
+
+/* Variables */
+var {
+    font-style: italic;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
