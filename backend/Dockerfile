@@ -1,15 +1,5 @@
 FROM python:3.9-slim
 
-# Install system dependencies for WeasyPrint and pdf2image
-RUN apt-get update && apt-get install -y \
-    poppler-utils \
-    libpango-1.0-0 \
-    libpangoft2-1.0-0 \
-    libgdk-pixbuf2.0-0 \
-    libffi-dev \
-    shared-mime-info \
-    && rm -rf /var/lib/apt/lists/*
-
 # Set working directory
 WORKDIR /app
 
