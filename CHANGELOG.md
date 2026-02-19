@@ -14,9 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Code of conduct
 - Security policy
 - Issue and PR templates
-- Docker support with docker-compose
+- Docker support
 - Multi-page image support with ZIP archives
-- Tailwind CSS frontend
 
 ### Changed
 - Improved documentation
@@ -31,7 +30,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Image conversion support (PNG, JPG)
 - Multi-page document support
 - ZIP file generation for multi-page images
-- Frontend web interface
 - Environment-based configuration
 - Cloud Run deployment support
 

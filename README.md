@@ -5,7 +5,7 @@
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115.0-green.svg)](https://fastapi.tiangolo.com/)
 [![Docker](https://img.shields.io/badge/docker-ready-blue.svg)](Dockerfile)
 
-🚀 A powerful REST API and web interface for converting HTML and Markdown to beautifully formatted PDFs and Images.
+🚀 A powerful REST API for converting HTML and Markdown to beautifully formatted PDFs and Images.
 
 [Features](#features) • [Quick Start](#quick-start) • [API Documentation](#api-endpoints) • [Docker](#docker-setup-recommended) • [Contributing](CONTRIBUTING.md)
 
@@ -32,11 +32,11 @@
 ```bash
 git clone https://github.com/YOUR_USERNAME/document-converter.git
 cd document-converter
-docker-compose up -d
+docker build -t document-converter .
+docker run -p 8000:8080 document-converter
 ```
 
 Then visit:
-- **Frontend UI**: http://localhost:3000
 - **API Docs**: http://localhost:8000/docs
 
 ### Local Development
@@ -71,11 +71,11 @@ python3 -m venv .venv
 ```bash
 # On macOS/Linux:
 source .venv/bin/activate
-pip install -r backend/requirements.txt
+pip install -r requirements.txt
 
 # Or on Windows:
 .venv\Scripts\activate
-pip install -r backend/requirements.txt
+pip install -r requirements.txt
 ```
 
 Note: WeasyPrint and pdf2image require some system dependencies. If you encounter issues on **macOS**:
@@ -92,40 +92,20 @@ sudo apt-get install python3-dev python3-pip python3-cffi libcairo2 libpango-1.0
 
 The easiest way to run the Document Converter is using Docker.
 
-### Using Docker Compose
-
-1. Make sure you have Docker and Docker Compose installed
-2. Clone the repository
-3. Run:
-
 ```bash
-docker-compose up -d
+# Build the image
+docker build -t document-converter .
+
+# Run the container
+docker run -p 8000:8080 document-converter
 ```
 
-This will start:
-- **Backend API** on http://localhost:8000
-- **Frontend UI** on http://localhost:3000
+The API will be available at http://localhost:8000
 
-### Building Individual Containers
-
-**Backend only:**
-```bash
-cd backend
-docker build -t document-converter-api .
-docker run -p 8000:8000 document-converter-api
-```
-
-**Frontend only:**
-```bash
-cd frontend
-docker build -t document-converter-frontend .
-docker run -p 3000:80 document-converter-frontend
-```
-
-### Stopping Services
+### Stopping the Container
 
 ```bash
-docker-compose down
+docker stop $(docker ps -q --filter ancestor=document-converter)
 ```
 
 ## Usage
@@ -448,13 +428,13 @@ These provide interactive API documentation where you can test endpoints directl
 document-converter/
 ├── .github/
 │   ├── ISSUE_TEMPLATE/       # Issue templates
+│   ├── workflows/            # CI/CD workflows
 │   └── pull_request_template.md
 ├── api.py                    # FastAPI server
 ├── converter.py              # CLI conversion script
-├── style.css                 # PDF styling
+├── style.css                 # Document styling
 ├── requirements.txt          # Python dependencies
-├── Dockerfile                # Backend Docker config
-├── docker-compose.yml        # Multi-service orchestration
+├── Dockerfile                # Docker configuration
 ├── .dockerignore             # Docker ignore patterns
 ├── start-api.sh              # Start API server script
 ├── convert.sh                # CLI convenience script
@@ -462,6 +442,7 @@ document-converter/
 ├── CONTRIBUTING.md           # Contribution guidelines
 ├── CODE_OF_CONDUCT.md        # Code of conduct
 ├── SECURITY.md               # Security policy
+├── CHANGELOG.md              # Version history
 └── README.md                 # This file
 ```
 
