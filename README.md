@@ -1,6 +1,15 @@
-# Document Converter API
+# Document Converter
 
-Convert HTML and Markdown files to beautifully formatted PDFs and Images via REST API.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.115.0-green.svg)](https://fastapi.tiangolo.com/)
+[![Docker](https://img.shields.io/badge/docker-ready-blue.svg)](Dockerfile)
+
+🚀 A powerful REST API and web interface for converting HTML and Markdown to beautifully formatted PDFs and Images.
+
+[Features](#features) • [Quick Start](#quick-start) • [API Documentation](#api-endpoints) • [Docker](#docker-setup-recommended) • [Contributing](CONTRIBUTING.md)
+
+---
 
 ## Features
 
@@ -16,11 +25,36 @@ Convert HTML and Markdown files to beautifully formatted PDFs and Images via RES
 - 🚀 Fast and reliable conversion
 - 🎯 Also includes command-line interface
 
+## Quick Start
+
+### Using Docker (Recommended)
+
+```bash
+git clone https://github.com/YOUR_USERNAME/document-converter.git
+cd document-converter
+docker-compose up -d
+```
+
+Then visit:
+- **Frontend UI**: http://localhost:3000
+- **API Docs**: http://localhost:8000/docs
+
+### Local Development
+
+```bash
+git clone https://github.com/YOUR_USERNAME/document-converter.git
+cd document-converter
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+./start-api.sh
+```
+
 ## Installation
 
 ### Prerequisites
 
-- Python 3.7 or higher
+- Python 3.9 or higher
 - pip (Python package manager)
 
 ### Setup
@@ -361,7 +395,7 @@ The PDFs are generated with:
 
 ## Customization
 
-The default styling is in `google-docs-style.css`. You can:
+The default styling is in `style.css`. You can:
 
 1. Edit this file to change the default styling
 2. Create your own CSS file and use it with the `-c` option
@@ -397,7 +431,7 @@ body {
 - Or kill the process using port 8000
 
 **PDF output looks different than expected**
-- Check that `google-docs-style.css` is in the backend directory
+- Check that `style.css` is in the backend directory
 - Try using custom CSS via the `custom_css` parameter
 
 ## API Documentation
@@ -412,26 +446,69 @@ These provide interactive API documentation where you can test endpoints directl
 
 ```
 document-converter/
-├── backend/
-│   ├── api.py                # FastAPI server
-│   ├── converter.py          # CLI conversion script
-│   ├── google-docs-style.css # Google Docs styling
-│   ├── requirements.txt      # Python dependencies
-│   ├── sample.md             # Sample Markdown file
-│   └── sample.html           # Sample HTML file
-├── .venv/                    # Virtual environment
-├── docker-compose.yml        # Docker Compose configuration
-├── .dockerignore            # Docker ignore file
-├── start-api.sh              # Start API server
+├── .github/
+│   ├── ISSUE_TEMPLATE/       # Issue templates
+│   └── pull_request_template.md
+├── api.py                    # FastAPI server
+├── converter.py              # CLI conversion script
+├── style.css                 # PDF styling
+├── requirements.txt          # Python dependencies
+├── Dockerfile                # Backend Docker config
+├── docker-compose.yml        # Multi-service orchestration
+├── .dockerignore             # Docker ignore patterns
+├── start-api.sh              # Start API server script
 ├── convert.sh                # CLI convenience script
-├── test-api.py               # API test client
+├── LICENSE                   # MIT License
+├── CONTRIBUTING.md           # Contribution guidelines
+├── CODE_OF_CONDUCT.md        # Code of conduct
+├── SECURITY.md               # Security policy
 └── README.md                 # This file
 ```
 
-## License
-
-MIT License - Feel free to use and modify as needed.
-
 ## Contributing
 
-Contributions are welcome! Feel free to submit issues or pull requests.
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details on:
+- Reporting bugs
+- Suggesting features
+- Submitting pull requests
+- Development setup
+- Code style guidelines
+
+Please read our [Code of Conduct](CODE_OF_CONDUCT.md) before contributing.
+
+## Security
+
+For security concerns, please see our [Security Policy](SECURITY.md).
+
+## Support
+
+- 📖 [API Documentation](http://localhost:8000/docs)
+- 🐛 [Report a Bug](.github/ISSUE_TEMPLATE/bug_report.md)
+- 💡 [Request a Feature](.github/ISSUE_TEMPLATE/feature_request.md)
+- 💬 Open a [GitHub Issue](../../issues)
+
+## Roadmap
+
+- [ ] Batch conversion support
+- [ ] Webhook notifications
+- [ ] Template system for custom styling
+- [ ] Cloud storage integrations
+- [ ] PDF encryption and password protection
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+Built with:
+- [FastAPI](https://fastapi.tiangolo.com/) - Modern web framework
+- [WeasyPrint](https://weasyprint.org/) - PDF rendering
+- [pdf2image](https://github.com/Belval/pdf2image) - PDF to image conversion
+- [markdown2](https://github.com/trentm/python-markdown2) - Markdown processing
+
+---
+
+<div align="center">
+  <sub>Built with ❤️ by the Document Converter community</sub>
+</div>

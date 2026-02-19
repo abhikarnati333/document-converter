@@ -35,7 +35,7 @@ app.add_middleware(
 
 # Directory for temporary files
 TEMP_DIR = tempfile.gettempdir()
-CSS_PATH = os.path.join(os.path.dirname(__file__), 'google-docs-style.css')
+CSS_PATH = os.path.join(os.path.dirname(__file__), 'style.css')
 
 
 def markdown_to_html(markdown_content: str) -> str:

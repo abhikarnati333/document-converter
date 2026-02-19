@@ -63,7 +63,7 @@ def convert_to_pdf(html_content, output_path, css_path=None):
             css_files.append(css_path)
         else:
             # Use default CSS if it exists
-            default_css = os.path.join(os.path.dirname(__file__), 'google-docs-style.css')
+            default_css = os.path.join(os.path.dirname(__file__), 'style.css')
             if os.path.exists(default_css):
                 css_files.append(default_css)
         
